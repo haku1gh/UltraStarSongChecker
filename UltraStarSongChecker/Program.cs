@@ -152,6 +152,7 @@ namespace UltraStarSongChecker
             tests.Add("lowercasetags", new TestLowerCaseTags("lowercasetags", false));
             tests.Add("languageformat", new TestLanguageFormat("languageformat", false));
             tests.Add("missing-language", new TestMissingLanguageTag("missing-language", false));
+            tests.Add("missing-year", new TestMissingYearTag("missing-year", false));
             tests.Add("no-cover", new TestNoCover("no-cover", false));
         }
 
@@ -191,6 +192,7 @@ namespace UltraStarSongChecker
             print("  --enable-lowercasetags      do check for tags with lower-case characters [no]");
             print("  --enable-languageformat     do check for languages not in PascalCase format [no]");
             print("  --enable-missing-language   do check for missing language tag [no]");
+            print("  --enable-missing-year       do check for missing year tag [no]");
             print("  --enable-no-cover           do check for not mentioned cover files [no]");
             print("");
         }
