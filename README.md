@@ -2,7 +2,7 @@
 A command line tool to check all TXT song files for correctness.
 The tool is written in C# (.NET 4.5) and requires the .NET Framework to be installed.
 
-This tool currently contains 18 tests, were 12 are enabled by default.
+This tool currently contains 19 tests, were 12 are enabled by default.
 It is working and tested in Windows and Linux.
 
 # Help
