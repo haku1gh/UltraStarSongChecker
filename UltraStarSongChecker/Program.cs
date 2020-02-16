@@ -151,9 +151,10 @@ namespace UltraStarSongChecker
             tests.Add("linetermination", new TestLineTermination("linetermination", false));
             tests.Add("lowercasetags", new TestLowerCaseTags("lowercasetags", false));
             tests.Add("languageformat", new TestLanguageFormat("languageformat", false));
-            tests.Add("missing-language", new TestMissingLanguageTag("missing-language", false));
-            tests.Add("missing-year", new TestMissingYearTag("missing-year", false));
+            tests.Add("no-language", new TestNoLanguage("no-language", false));
+            tests.Add("no-year", new TestNoYear("no-year", false));
             tests.Add("no-cover", new TestNoCover("no-cover", false));
+            tests.Add("no-video", new TestNoVideo("no-video", false));
         }
 
         /// <summary>
@@ -191,9 +192,10 @@ namespace UltraStarSongChecker
             print("  --enable-linetermination    do check for mixed (Windows and Linux) line termination [no]");
             print("  --enable-lowercasetags      do check for tags with lower-case characters [no]");
             print("  --enable-languageformat     do check for languages not in PascalCase format [no]");
-            print("  --enable-missing-language   do check for missing language tag [no]");
-            print("  --enable-missing-year       do check for missing year tag [no]");
+            print("  --enable-no-language        do check for missing language tag [no]");
+            print("  --enable-no-year            do check for missing year tag [no]");
             print("  --enable-no-cover           do check for not mentioned cover files [no]");
+            print("  --enable-no-video           do check for not mentioned video files [no]");
             print("");
         }
 

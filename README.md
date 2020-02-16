@@ -2,7 +2,7 @@
 A command line tool to check all TXT song files for correctness.
 The tool is written in C# (.NET 4.5) and requires the .NET Framework to be installed.
 
-This tool currently contains 17 tests, were 12 are enabled by default.
+This tool currently contains 18 tests, were 12 are enabled by default.
 It is working and tested in Windows and Linux.
 
 # Help
@@ -43,5 +43,26 @@ The above mentioned examples all work also in Linux. They just need to be slight
     $ mono UltraStarSongChecker.exe --config='<path>/config.ini' --dir='<path>/additional_songs' --enable-all --disable-missing-language
 
 # Tests / Checks
+The following table shows all avaiable tests.
 
-TBD
+| Name             | Default  | Description                                                                     |
+| ---------------- |:--------:| ------------------------------------------------------------------------------- |
+| invalidsong      | enabled  | Check for invalid song files (Artist, Title or MP3 missing)                     |
+| duplicatefiles   | enabled  | Check for duplicate song files.                                                 |
+| missing-audio    | enabled  | Check for files with an existing MP3 tag, but the audio file does not exists.   |
+| missing-video    | enabled  | Check for files with an existing VIDEO tag, but the video file does not exists. |
+| missing-cover    | enabled  | Check for files with an existing COVER tag, but the cover file does not exists. |
+| missing-endmark  | enabled  | Check for files where the end mark 'E' at the end is missing.                   |
+| newlinefirstnote | enabled  | Check for files where the first note is a newline '-'.                          |
+| blines           | enabled  | Check for files containing one or more lines starting with 'B'.                 |
+| emptylines       | enabled  | Check for files containing more than one empty line.                            |
+| invalid-year     | enabled  | Check for files with an existing but invalid YEAR tag (not a positive integer). |
+| invalid-bpm      | enabled  | Check for files with an existing but invalid BPM tag (not a positive double).   |
+| invalid-gap      | enabled  | Check for files with an existing but invalid GAP tag (not a double).            |
+| linetermination  | disabled | Check for files with mixed (Windows and Linux) line termination.                |
+| lowercasetags    | disabled | Check for files containing tags in lower-case characters.                       |
+| languageformat   | disabled | Check for files where LANGUAGE is not in PascalCase format.                     |
+| no-language      | disabled | Check for files with a missing or empty LANGUAGE tag.                           |
+| no-year          | disabled | Check for files with a missing or empty YEAR tag.                               |
+| no-cover         | disabled | Check for files with a missing or empty COVER tag.                              |
+| no-video         | disabled | Check for files with a missing or empty VIDEO tag.                              |

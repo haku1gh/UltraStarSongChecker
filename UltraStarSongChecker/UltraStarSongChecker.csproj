@@ -66,9 +66,10 @@
     <Compile Include="Tests.cs" />
     <Compile Include="Tests\TestInvalidBPM.cs" />
     <Compile Include="Tests\TestLineTermination.cs" />
-    <Compile Include="Tests\TestMissingYearTag.cs" />
+    <Compile Include="Tests\TestNoVideo.cs" />
+    <Compile Include="Tests\TestNoYear.cs" />
     <Compile Include="Tests\TestNoCover.cs" />
-    <Compile Include="Tests\TestMissingLanguageTag.cs" />
+    <Compile Include="Tests\TestNoLanguage.cs" />
     <Compile Include="Tests\TestLanguageFormat.cs" />
     <Compile Include="Tests\TestLowerCaseTags.cs" />
     <Compile Include="Tests\TestInvalidGAP.cs" />

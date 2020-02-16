@@ -7,20 +7,20 @@ using System.Linq;
 namespace UltraStarSongChecker.Tests
 {
     /// <summary>
-    /// Represents a class to check for missing language tags in the song files.
+    /// Represents a class to check for missing year tags in the song files.
     /// </summary>
     /// <remarks>
     /// </remarks>
-    internal class TestMissingLanguageTag : Test
+    internal class TestNoYear : Test
     {
         /// <summary>
-        /// Initializes a new instance of <see cref="TestMissingLanguageTag"/>.
+        /// Initializes a new instance of <see cref="TestNoYear"/>.
         /// </summary>
         /// <param name="testName">The name of the test</param>
         /// <param name="enabled">Indicator whether the test is enabled.</param>
-        public TestMissingLanguageTag(string testName, bool enabled = true) : base(testName, enabled)
+        public TestNoYear(string testName, bool enabled = true) : base(testName, enabled)
         {
-            logOutput.Add("Checking for files with an empty or missing language tag ...");
+            logOutput.Add("Checking for files with an empty or missing year tag ...");
         }
 
         /// <summary>
@@ -33,12 +33,21 @@ namespace UltraStarSongChecker.Tests
         /// <returns><c>true</c> if an error was found; otherwise <c>false</c>.</returns>
         protected override bool onRun(SongEntry song, string[] songFile, byte[] bytes, List<SongEntry> songEntries)
         {
-            if (song.Language == "")
+            bool error = true; // Default assume NO error
+            foreach (string line in songFile)
             {
-                logOutput.Add("    => Empty or missing language tag found: " + song.FileName);
-                return true;
+                if (line.ToUpper().StartsWith("#YEAR:"))
+                {
+                    if (line.Substring(6).Trim() != "")
+                    {
+                        error = false;
+                        break;
+                    }
+                }
             }
-            else return false;
+            if (error)
+                logOutput.Add("    => Empty or missing year tag found: " + song.FileName);
+            return error;
         }
 
         /// <summary>
@@ -46,7 +55,7 @@ namespace UltraStarSongChecker.Tests
         /// </summary>
         protected override void postprocessing()
         {
-            logOutput.Add("    Found " + ErrorCounter + " empty or missing language tags in song files.");
+            logOutput.Add("    Found " + ErrorCounter + " empty or missing year tags in song files.");
         }
     }
 }

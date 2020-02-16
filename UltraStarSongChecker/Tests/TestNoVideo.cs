@@ -7,20 +7,20 @@ using System.Linq;
 namespace UltraStarSongChecker.Tests
 {
     /// <summary>
-    /// Represents a class to check for missing year tags in the song files.
+    /// Represents a class to check for missing video tags in the song files.
     /// </summary>
     /// <remarks>
     /// </remarks>
-    internal class TestMissingYearTag : Test
+    internal class TestNoVideo : Test
     {
         /// <summary>
-        /// Initializes a new instance of <see cref="TestMissingYearTag"/>.
+        /// Initializes a new instance of <see cref="TestNoVideo"/>.
         /// </summary>
         /// <param name="testName">The name of the test</param>
         /// <param name="enabled">Indicator whether the test is enabled.</param>
-        public TestMissingYearTag(string testName, bool enabled = true) : base(testName, enabled)
+        public TestNoVideo(string testName, bool enabled = true) : base(testName, enabled)
         {
-            logOutput.Add("Checking for files with an empty or missing year tag ...");
+            logOutput.Add("Checking for files with an empty or missing video tag ...");
         }
 
         /// <summary>
@@ -33,21 +33,12 @@ namespace UltraStarSongChecker.Tests
         /// <returns><c>true</c> if an error was found; otherwise <c>false</c>.</returns>
         protected override bool onRun(SongEntry song, string[] songFile, byte[] bytes, List<SongEntry> songEntries)
         {
-            bool error = true; // Default assume NO error
-            foreach (string line in songFile)
+            if (song.Video == "")
             {
-                if (line.ToUpper().StartsWith("#YEAR:"))
-                {
-                    if (line.Substring(6).Trim() != "")
-                    {
-                        error = false;
-                        break;
-                    }
-                }
+                logOutput.Add("    => Empty or missing video tag found: " + song.FileName);
+                return true;
             }
-            if (error)
-                logOutput.Add("    => Empty or missing year tag found: " + song.FileName);
-            return error;
+            else return false;
         }
 
         /// <summary>
@@ -55,7 +46,7 @@ namespace UltraStarSongChecker.Tests
         /// </summary>
         protected override void postprocessing()
         {
-            logOutput.Add("    Found " + ErrorCounter + " empty or missing year tags in song files.");
+            logOutput.Add("    Found " + ErrorCounter + " empty or missing video tags in song files.");
         }
     }
 }

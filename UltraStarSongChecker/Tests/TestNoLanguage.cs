@@ -7,21 +7,20 @@ using System.Linq;
 namespace UltraStarSongChecker.Tests
 {
     /// <summary>
-    /// Represents a class to check for song files without a cover.
+    /// Represents a class to check for missing language tags in the song files.
     /// </summary>
     /// <remarks>
-    /// All UltraStar versions should be able handle this and usually just show the default cover.
     /// </remarks>
-    internal class TestNoCover : Test
+    internal class TestNoLanguage : Test
     {
         /// <summary>
-        /// Initializes a new instance of <see cref="TestNoCover"/>.
+        /// Initializes a new instance of <see cref="TestNoLanguage"/>.
         /// </summary>
         /// <param name="testName">The name of the test</param>
         /// <param name="enabled">Indicator whether the test is enabled.</param>
-        public TestNoCover(string testName, bool enabled = true) : base(testName, enabled)
+        public TestNoLanguage(string testName, bool enabled = true) : base(testName, enabled)
         {
-            logOutput.Add("Checking for files with an empty or missing cover tag ...");
+            logOutput.Add("Checking for files with an empty or missing language tag ...");
         }
 
         /// <summary>
@@ -34,13 +33,12 @@ namespace UltraStarSongChecker.Tests
         /// <returns><c>true</c> if an error was found; otherwise <c>false</c>.</returns>
         protected override bool onRun(SongEntry song, string[] songFile, byte[] bytes, List<SongEntry> songEntries)
         {
-            if (song.Cover == "")
+            if (song.Language == "")
             {
-                logOutput.Add("    => Empty or missing cover tag found: " + song.FileName);
+                logOutput.Add("    => Empty or missing language tag found: " + song.FileName);
                 return true;
             }
-            else
-                return false;
+            else return false;
         }
 
         /// <summary>
@@ -48,7 +46,7 @@ namespace UltraStarSongChecker.Tests
         /// </summary>
         protected override void postprocessing()
         {
-            logOutput.Add("    Found " + ErrorCounter + " no mentioned cover(s) in song files.");
+            logOutput.Add("    Found " + ErrorCounter + " empty or missing language tags in song files.");
         }
     }
 }
