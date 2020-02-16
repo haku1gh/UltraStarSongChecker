@@ -31,7 +31,7 @@ namespace UltraStarSongChecker
             parseApplicationArguments(args);
             tests["invalidsong"].Enabled = true;    // Enable this test again, if it was accidentally disabled
 
-            print("Ultrastar Song Checker 1.4");
+            print("Ultrastar Song Checker 1.5");
             print("==========================");
 
             // Either no arguments are passed, or no directories been given. So nothing to do.
