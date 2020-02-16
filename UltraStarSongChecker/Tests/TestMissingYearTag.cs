@@ -20,7 +20,7 @@ namespace UltraStarSongChecker.Tests
         /// <param name="enabled">Indicator whether the test is enabled.</param>
         public TestMissingYearTag(string testName, bool enabled = true) : base(testName, enabled)
         {
-            logOutput.Add("Checking for files with an empty or missing language tag ...");
+            logOutput.Add("Checking for files with an empty or missing year tag ...");
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace UltraStarSongChecker.Tests
         /// </summary>
         protected override void postprocessing()
         {
-            logOutput.Add("    Found " + ErrorCounter + " empty or missing language tags in song files.");
+            logOutput.Add("    Found " + ErrorCounter + " empty or missing year tags in song files.");
         }
     }
 }
