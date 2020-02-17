@@ -155,6 +155,8 @@ namespace UltraStarSongChecker
             tests.Add("no-year", new TestNoYear("no-year", false));
             tests.Add("no-cover", new TestNoCover("no-cover", false));
             tests.Add("no-video", new TestNoVideo("no-video", false));
+
+            tests.Add("wrong-tag-langauge", new WrongTagLangauge("wrong-tag-langauge", false));
         }
 
         /// <summary>
@@ -166,36 +168,38 @@ namespace UltraStarSongChecker
             print("Options: [defaults in brackets after descriptions]");
             print("");
             print("Help options:");
-            print("  --help                      print this message");
+            print("  --help                       print this message");
             print("");
             print("Standard options:");
-            print("  --config=FILE               Search in config FILE for song dirs []");
-            print("  --dir=DIR                   Search in additional song DIR (can be added multiple times) []");
+            print("  --config=FILE                Search in config FILE for song dirs []");
+            print("  --dir=DIR                    Search in additional song DIR (can be added multiple times) []");
             print("");
             print("Configuration options:");
-            print("  --disable-statistics        disable ouput of statistics [no]");
-            print("  --disable-all               disable all checks");
-            print("  --enable-all                enable all checks");
+            print("  --disable-statistics         disable ouput of statistics [no]");
+            print("  --disable-all                disable all checks");
+            print("  --enable-all                 enable all checks");
             print("");
-            print("  --disable-duplicatefiles    do not check for duplicated files [no]");
-            print("  --disable-missing-audio     do not check for mentioned, but missing audio files [no]");
-            print("  --disable-missing-video     do not check for mentioned, but missing video files [no]");
-            print("  --disable-missing-cover     do not check for mentioned, but missing cover files [no]");
-            print("  --disable-missing-endmark   do not check for missing end marks [no]");
-            print("  --disable-newlinefirstnote  do not check for newline characters as first note [no]");
-            print("  --disable-blines            do not check for lines starting with 'B' [no]");
-            print("  --disable-emptylines        do not check for multiple empty lines [no]");
-            print("  --disable-invalid-year      do not check for invalid year [no]");
-            print("  --disable-invalid-bpm       do not check for invalid BPM [no]");
-            print("  --disable-invalid-gap       do not check for invalid GAP [no]");
+            print("  --disable-duplicatefiles     do not check for duplicated files [no]");
+            print("  --disable-missing-audio      do not check for mentioned, but missing audio files [no]");
+            print("  --disable-missing-video      do not check for mentioned, but missing video files [no]");
+            print("  --disable-missing-cover      do not check for mentioned, but missing cover files [no]");
+            print("  --disable-missing-endmark    do not check for missing end marks [no]");
+            print("  --disable-newlinefirstnote   do not check for newline characters as first note [no]");
+            print("  --disable-blines             do not check for lines starting with 'B' [no]");
+            print("  --disable-emptylines         do not check for multiple empty lines [no]");
+            print("  --disable-invalid-year       do not check for invalid year [no]");
+            print("  --disable-invalid-bpm        do not check for invalid BPM [no]");
+            print("  --disable-invalid-gap        do not check for invalid GAP [no]");
             print("");
-            print("  --enable-linetermination    do check for mixed (Windows and Linux) line termination [no]");
-            print("  --enable-lowercasetags      do check for tags with lower-case characters [no]");
-            print("  --enable-languageformat     do check for languages not in PascalCase format [no]");
-            print("  --enable-no-language        do check for missing language tag [no]");
-            print("  --enable-no-year            do check for missing year tag [no]");
-            print("  --enable-no-cover           do check for not mentioned cover files [no]");
-            print("  --enable-no-video           do check for not mentioned video files [no]");
+            print("  --enable-linetermination     do check for mixed (Windows and Linux) line termination [no]");
+            print("  --enable-lowercasetags       do check for tags with lower-case characters [no]");
+            print("  --enable-languageformat      do check for languages not in PascalCase format [no]");
+            print("  --enable-no-language         do check for missing language tag [no]");
+            print("  --enable-no-year             do check for missing year tag [no]");
+            print("  --enable-no-cover            do check for not mentioned cover files [no]");
+            print("  --enable-no-video            do check for not mentioned video files [no]");
+            print("");
+            print("  --enable-wrong-tag-langauge  do check for wrong tag LANGAUGE [no]");
             print("");
         }
 

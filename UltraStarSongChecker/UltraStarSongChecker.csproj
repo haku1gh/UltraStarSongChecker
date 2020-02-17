@@ -67,6 +67,7 @@
     <Compile Include="Tests\TestInvalidBPM.cs" />
     <Compile Include="Tests\TestLineTermination.cs" />
     <Compile Include="Tests\TestNoVideo.cs" />
+    <Compile Include="Tests\WrongTagLangauge.cs" />
     <Compile Include="Tests\TestNoYear.cs" />
     <Compile Include="Tests\TestNoCover.cs" />
     <Compile Include="Tests\TestNoLanguage.cs" />
