@@ -54,6 +54,11 @@ namespace UltraStarSongChecker
         public string Cover { get; }
 
         /// <summary>
+        /// Gets the background file name of the song.
+        /// </summary>
+        public string Background { get; }
+
+        /// <summary>
         /// Initializes a new instance of <see cref="SongEntry"/>.
         /// </summary>
         /// <param name="fileName">The full qualified file name of the song.</param>
@@ -65,7 +70,8 @@ namespace UltraStarSongChecker
         /// <param name="mp3">The MP3 file name.</param>
         /// <param name="video">The video file name.</param>
         /// <param name="cover">The cover file name.</param>
-        public SongEntry(string fileName, string artist, string title, string language, string genre, string creator, string mp3, string video, string cover)
+        /// <param name="background">The background file name.</param>
+        public SongEntry(string fileName, string artist, string title, string language, string genre, string creator, string mp3, string video, string cover, string background)
         {
             this.FileName = fileName;
             this.Artist = artist;
@@ -76,7 +82,7 @@ namespace UltraStarSongChecker
             this.MP3 = mp3;
             this.Video = video;
             this.Cover = cover;
-            this.Genre = genre;
+            this.Background = background;
         }
 
         // Equals operator is enough for Contains method in lists. //
