@@ -33,7 +33,7 @@ namespace UltraStarSongChecker.Tests
         /// <returns><c>true</c> if an error was found; otherwise <c>false</c>.</returns>
         protected override bool onRun(SongEntry song, string[] songFile, byte[] bytes, List<SongEntry> songEntries)
         {
-            bool error = true; // Default assume NO error
+            bool error = true; // Default assume error
             foreach (string line in songFile)
             {
                 if (line.ToUpper().StartsWith("#YEAR:"))
